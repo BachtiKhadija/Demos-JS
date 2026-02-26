@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .c{
+            color:blue;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+    </style>
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+            let myBtn=document.querySelector('#addTodo');
+            myBtn.addEventListener('click',function(){
+              //chercher l input
+              let task=document.querySelector('#todo').value;
+              let liTask=document.createElement('li');
+              liTask.textContent=task;
+              liTask.className='c';
+              document.querySelector('#todos').appendChild(liTask);
+              document.querySelector('#todo').value='';
+              document.querySelector('#todo').focus();
+
+            });
+
+
+     });
+    </script>
+
+</head>
+<body>
+<div><input type="text" id="todo"><button type="button" id="addTodo">Add Todo</button></div>
+<ul id="todos">
+
+</ul>
+
+</body>
+</html>

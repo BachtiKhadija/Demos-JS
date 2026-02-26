@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <table>
+        <tr><td>ID : </td><td><input type="text" id="Iden"/></td></tr>
+        <tr><td>Nom : </td><td><input type="text" id="nom"/></td></tr>
+        
+        <tr><td colspan="2"><button type="button" id="add">Ajouter</button></td></tr>
+    </table>
+    </form>
+    <h1>Liste des employés </h1>
+    <table border="1" id="list"  style="width:80%;margin:15px auto;border-collapse: collapse;"><tr style="background-color: #19F;"><th>ID</th><th>Nom</th></tr></table>
+
+    <script type="text/javascript">
+        let btnAdd=document.querySelector('#add');
+        btnAdd.addEventListener('click',function(){
+            let idVal=document.querySelector('#Iden');
+            let nomVal=document.querySelector('#nom');
+            document.querySelector('#list').insertAdjacentHTML('beforeend',`<tr><td>${idVal.value}</td><td>${nomVal.value}</td></tr>`);
+             idVal.value='';nomVal.value='';idVal.focus();
+            /*
+            l'attribut position de insertAdjacentHTML supporte les valeurs suivantes:
+            ****beforestart : previous element sibling
+            ****afterend    : neext element sibling
+            ****afterstart  : first child
+            ****beforeend    : last child
+            */
+            
+      
+      
+        });
+
+    </script>
+</body>
+</html>
