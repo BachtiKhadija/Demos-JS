@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="GET" id="myForm">
+        <table>
+            <tr><td>Val1</td><td><input type="text" id="val1"></td></tr>
+           <tr><td>Val2</td><td><input type="text" id="val2"></td></tr>
+            
+      
+        </table>
+
+    </form>
+    <script type="text/javascript">
+        document.querySelector('#val1').addEventListener('keyup',function(e){
+           console.log(e.keyCode+' '+e.key+' '+e.code);
+        });
+         let data=new Array();
+
+       document.querySelector('#val2').addEventListener('keydown',function(e){
+        
+            if(e.keyCode==13){
+                if(this.value.length!=0){
+                  data.push(this.value);
+                  this.value='';
+                  console.log(data);
+                }
+            }
+
+
+       });
+
+    </script>
+
+    
+</body>
+</html>

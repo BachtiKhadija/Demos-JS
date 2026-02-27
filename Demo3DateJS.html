@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="GET" id="myForm">
+        <table>
+            <tr><td>Date Début</td><td><input type="date" min="2026/01/01" id="d1"></td></tr>
+            <tr><td>Date Fin</td><td><input type="date" id="d2" min="2026/01/01"></td></tr>
+             
+        <tr><td colspan="2"><button type="submit" >Envoyer</button></td></tr>
+        
+    
+    </table>
+    <p id="res"></p>
+
+    </form>
+
+    <script type="text/javascript">
+        document.querySelector('#myForm').addEventListener('submit',function(e){
+              e.preventDefault();
+              let allD=document.querySelectorAll('input[type=date]');
+              let diff=new Date(allD[1].value)-new Date(allD[0].value);
+              //console.log(diff/(1000*60*60*24));
+              document.querySelector('#res').textContent=`${(diff/(1000*60*60*24))*150} DH`;
+
+        });
+
+
+    </script>
+</body>
+</html>
