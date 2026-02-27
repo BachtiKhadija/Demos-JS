@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <form action="">
+        <table>
+            <tr><td>Nom</td><td><input type="text" id="lname"></td></tr>
+            <tr><td>Prenom</td><td><input type="text" id="fname"></td></tr>
+            <tr><td>Ville</td><td><select name="" id="ville">
+                <option value="" selected disabled>choisir une ville ...</option>
+                  <option value="Agadir">Agadir</option>
+                  <option value="Rabat">Rabat</option>
+                </select></td></tr>
+            <tr><td colspan="2"><button type="submit" id="btnSubmit">Envoyer</button></td></tr>
+        </table>
+
+    </form>
+
+    <script type="text/javascript">
+         let allInpts=document.querySelectorAll('input[type=text]');
+        /* allInpts.forEach(function(item,pos){
+             item.addEventListener('focus',function(){
+                    item.style.backgroundColor='#A1F';
+             });
+
+         });*/
+
+          allInpts.forEach(function(item,pos){
+             item.addEventListener('blur',function(){
+                    alert(item.value);
+             });
+
+         })
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="task"/><br>
+    <ul id="tasks">
+
+    </ul>
+
+
+    <script type="text/javascript">
+        document.querySelector('#task').addEventListener('change',function(){
+              /* let newLi=document.createElement('li');
+               newLi.textContent=`${this.value}`;
+               document.querySelector('#tasks').appendChild(newLi);
+               //this fait reference au target : l elet sur lequel change event à été appliqué
+                   */
+             document.querySelector('#tasks').insertAdjacentHTML('beforeend',`<li>${this.value}</li>`); 
+             this.value='';
+             this.focus();
+        });
+    </script>
+</body>
+</html>

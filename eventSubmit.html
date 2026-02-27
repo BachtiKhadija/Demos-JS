@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="GET" id="myForm">
+        <table>
+            <tr><td>Val1</td><td><input type="text" id="val1"></td></tr>
+            <tr><td>Val2</td><td><input type="text" id="val2"></td></tr>
+             <tr><td>Opérateur</td><td><input type="radio" checked id="op1" value="+" name="op">+&nbsp;<input type="radio" id="op2" value="*" name="op">*&nbsp;</td></tr>
+        <tr><td colspan="2"><button type="submit" id="btnSend">Envoyer</button></td></tr>
+        </table>
+
+    </form>
+
+
+
+
+    <script type="text/javascript">
+        /*document.querySelector('#myForm').addEventListener('submit',function(){
+
+        });*/
+         document.querySelector('#btnSend').addEventListener('click',function(e){
+            e.preventDefault();
+            let allInputs=document.querySelectorAll('input[type=text]');
+            let allRd=document.querySelectorAll('input[type=radio]');
+            let operator='';
+            allRd.forEach(function(item,pos){
+                if(item.checked){
+                    operator=item.value;     
+                }
+            });
+            let operation=`${allInputs[0].value}${operator}${allInputs[1].value}`;
+            console.log(eval(operation));
+
+        
+        
+            });
+
+
+
+    </script>
+</body>
+</html>
