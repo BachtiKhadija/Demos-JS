@@ -1,0 +1,35 @@
+#added{
+    display: block;
+    padding: 5px;
+    opacity:0;
+    text-align:center;
+    width: 75%;
+    font-weight:500;
+    margin:15px auto;
+}
+.text-shadow{
+     text-shadow: 4px 4px 10px #219ec786;
+}
+#ajouter{
+    text-shadow: 4px 4px 10px #000;
+    transition: .5s ease-in-out;
+}
+#ajouter:hover{
+    transform: translateY(-2px) ;
+}
+@keyframes valid {
+    0%{
+        opacity: 0;
+
+    }
+    10% , 30%{
+        opacity: .5;
+    }
+    30% ,80%{
+        opacity: 1;
+    } 
+    100%{
+        opacity: 0;
+       
+    }
+}
