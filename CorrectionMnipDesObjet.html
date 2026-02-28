@@ -53,7 +53,7 @@
          //transformer chaque objet en TR 
          let data=''
          for(let p of produits){
-           data+=`<tr><td>${p.ref}</td><td>${p.libelle}</td><td>${p.prixU}</td><td><img src=${p.image} width="60px" height="60px" class="rounded-circle"/></td><td><button type="button" id="${p.ref}" class="del btn btn-sm btn-danger">delete</button></td></tr>`
+           data+=`<tr><td>${p.ref}</td><td>${p.libelle}</td><td>${p.prixU}</td><td><img src=${p.image} width="60px" height="60px" class="rounded-circle"/></td><td><button type="button" id="${p.ref}" class="del btn btn-sm btn-danger" onclick="delProd(${p.ref})">delete</button></td></tr>`
         }
          
         document.querySelector('#content').innerHTML=data;
@@ -70,16 +70,13 @@
               //recharger la table html 
                  let data=''
                 for(let p of produits){
-                data+=`<tr><td>${p.ref}</td><td>${p.libelle}</td><td>${p.prixU}</td><td><img src=${p.image} width="60px" height="60px" class="rounded-circle"/></td><td><button id="${p.ref}" type="button" class="del btn btn-sm btn-danger">delete</button></td></tr>`
+                data+=`<tr><td>${p.ref}</td><td>${p.libelle}</td><td>${p.prixU}</td><td><img src=${p.image} width="60px" height="60px" class="rounded-circle"/></td><td><button id="${p.ref}" type="button" class="del btn btn-sm btn-danger" onclick="delProd(${p.ref})">delete</button></td></tr>`
                 }
                  document.querySelector('#content').innerHTML=data;
 
          });
           //gérer le clic sur les boutons .del
-          let addDelBtn=document.querySelectorAll('.del');
-          addDelBtn.forEach(function(b,pos){
-            b.addEventListener('click',function(e){
-                let r=b.getAttribute('id');
+          function delProd(r){
                 let p=-1;
                 for(let i in produits){
 
@@ -94,14 +91,14 @@
                      //recharger la table html 
                             let data=''
                             for(let p of produits){
-                            data+=`<tr><td>${p.ref}</td><td>${p.libelle}</td><td>${p.prixU}</td><td><img src=${p.image} width="60px" height="60px" class="rounded-circle"/></td><td><button id="${p.ref}" type="button" class="del btn btn-sm btn-danger">delete</button></td></tr>`
+                            data+=`<tr><td>${p.ref}</td><td>${p.libelle}</td><td>${p.prixU}</td><td><img src=${p.image} width="60px" height="60px" class="rounded-circle"/></td><td><button id="${p.ref}" type="button" class="btn btn-sm btn-danger" onclick="delProd(${p.ref})">delete</button></td></tr>`
                             }
                             document.querySelector('#content').innerHTML=data;
                             }
 
 
-            })
-          })
+          }
+        
     </script>
 </body>
 </html>
