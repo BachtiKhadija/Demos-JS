@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+1.	Un formulaire qui demande la date de naissance et affiche l’Age de l’utilisateur 
+2.	Un formulaire qui demande la date d’embauche et affiche la date de retraite 
+3.	Un formulaire contenant une liste produits de différentes catégories ( produit de ménage (2ans) , légumes (15jours) ,viande (1mois) , produits laitières (7 jours) ) , le choix d’une catégorie déclenche l’affichage de la date d’expiration du produit 
+
+
+        */
+        document.addEventListener('DOMContentLoaded',function(){
+           //form1
+            /*document.querySelector("#bdate").addEventListener('change',function(e){
+               let now =new Date();
+               let bd=new Date(this.value);
+               let diff=now-bd;
+               let age=diff/(1000*60*60*24*365);
+               document.getElementById('res').textContent="votre age est : "+Math.floor(age)+" ans";
+               //`votre age est : ${Math.floor(age)} ans`
+
+            });*/
+           //form2
+          /* document.querySelector("#db").addEventListener('change',function(e){
+               let now =new Date();
+               let bd=new Date(this.value);
+               let diff=now-bd;
+               let age=diff/(1000*60*60*24*365);
+               let reste=60-age;
+               let dr=reste>0?now.setFullYear(now.getFullYear()+reste):null;
+               document.querySelector('#res').textContent=`la date de retraite est : ${new Date(dr)}`;
+             
+
+            })*/
+           //form3 
+
+           //alimenter le select par des options
+           //produit de ménage (2ans) , légumes (15jours) ,viande (1mois) , produits laitières (7 jours) ) , le choix d’une catégorie déclenche l’affichage de la date d’expiration du produit 
+           let listCat=[{nom:"produit de ménage",duree:730},{nom:"légumes",duree:15},{nom:"viande",duree:60},{nom:"produits laitières",duree:7}];
+          /* listCat.forEach(function(item,pos){
+            console.log(item['nom']);//console.log(item.nom);
+           });*/ 
+           //transformer les elements du tableau listCat en options et les mettre dans le select #cat
+            let data=`<option value="" selected disabled>Choisir une catégorie ...</option>`
+           for(let c of listCat){ //of iterate by item et in iterate by position
+                data+=`<option value=${c.duree}>${c.nom}</option>`;
+            }
+            document.getElementById('cat').innerHTML=data;
+         //gérer l'event change du select 
+        document.querySelector('#cat').addEventListener('change',function(e){
+               let d =parseInt(this.value); //get value of selected option
+                let now=new Date()
+               let expiredD=now.setDate(now.getDate()+d);
+               document.querySelector('#res').textContent="la date d'expiration est : "+new Date(expiredD);
+    
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--formulaire 1-->
+  <!-- <form action="">
+    date Naissance : <input type="date" id="bdate" value="28-02-2026"/>
+    <p id="res"></p>
+   </form>-->
+  <!--formulaire 2
+
+    <form action="">
+    date Naissance : <input type="date" id="db" value="2026-02-26" /><br>
+
+    <p id="res"></p>
+   </form>-->
+   <!--formulaire 3-->
+   <form action="">
+    Catégorie : <select name="" id="cat">
+
+                </select>
+                <p id="res"></p>
+   </form>
+    
+</body>
+</html>
